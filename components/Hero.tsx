@@ -3,6 +3,13 @@ import React from 'react';
 import { ArrowRight, BarChart, Search, MessageCircle } from 'lucide-react';
 
 const Hero: React.FC = () => {
+  /**
+   * ACTION REQUIRED: Replace the URL below with your actual photo.
+   * Option 1: Use a link from Google Drive (shared publicly), LinkedIn, or a hosting site.
+   * Option 2: If you have the image file in your project folder, use the filename (e.g., "./my-photo.jpg").
+   */
+  const profileImage = "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&h=800&auto=format&fit=crop";
+
   return (
     <section id="home" className="pt-28 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 via-white to-indigo-50 scroll-mt-24">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
@@ -59,9 +66,13 @@ const Hero: React.FC = () => {
             
             <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl bg-white flex items-center justify-center border-4 border-white">
               <img
-                src="https://picsum.photos/seed/seo-woman/600/600"
+                src={profileImage}
                 alt="Susmita Barik"
                 className="w-full h-full object-cover"
+                onError={(e) => {
+                  // Fallback in case the image link fails
+                  (e.target as HTMLImageElement).src = "https://ui-avatars.com/api/?name=Susmita+Barik&background=0D8ABC&color=fff&size=512";
+                }}
               />
             </div>
 
